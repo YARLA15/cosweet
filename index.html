@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoSweet | Gula Kelapa Alami Premium</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#2d4a22',
+                        sage: '#8a9a5b',
+                        cream: '#fdfbf7',
+                        caramel: '#c68e17',
+                        caramelDark: '#a6720f'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Data Berita & Edukasi (Single Source of Truth) -->
+    <script src="berita-data.js"></script>
+</head>
+<body class="bg-cream font-sans text-gray-800 antialiased selection:bg-sage selection:text-white relative">
+    
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    
+    <!-- Navbar (Single Unified Header) -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo with subtle halo & drop shadow -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center group">
+                        <div class="navbar-logo-wrap">
+                            <img src="logo.png" alt="CoSweet Logo" class="h-20 md:h-28 w-auto mix-blend-multiply scale-125 md:scale-150 origin-left">
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center" id="desktop-nav">
+                    <a href="#home" class="nav-link py-1">Home</a>
+                    <a href="#about" class="nav-link py-1">About Us</a>
+                    <a href="#products" class="nav-link py-1">Products</a>
+                    <a href="#certifications" class="nav-link py-1">Sertifikasi</a>
+                    <a href="#news" class="nav-link py-1">Our News</a>
+                    <a href="#contact" class="nav-link py-1">Contact</a>
+                    <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20dengan%20produk%20gula%20kelapa%20alami..." target="_blank" class="btn-wa-header px-6 py-2.5 rounded-full flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi WhatsApp
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-forest hover:text-sage focus:outline-none p-2 rounded-xl bg-white/40 shadow-sm border border-white/60">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream/98 backdrop-blur-md border-t border-forest/10 shadow-xl">
+            <div class="px-5 pt-3 pb-6 space-y-2">
+                <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-sage/10">Home</a>
+                <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-sage/10">About Us</a>
+                <a href="#products" class="nav-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-sage/10">Products</a>
+                <a href="#certifications" class="nav-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-sage/10">Sertifikasi</a>
+                <a href="#news" class="nav-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-sage/10">Our News</a>
+                <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-sage/10">Contact</a>
+                <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20dengan%20produk%20gula%20kelapa%20alami..." target="_blank" class="btn-wa-header block px-4 py-3 mt-4 text-center rounded-full text-base">
+                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>Hubungi via WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen pt-28 pb-16 lg:pt-32 lg:pb-20 flex items-center bg-forest overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://media.discordapp.net/attachments/1057549617060925467/1554707822397104198/background_kelapa_gula.jpg?backend=b2&ex=6abdddfd&is=6abc8c7d&hm=d93caad7df784ff9bf05b1ca8455f8daa70218c6233b490cd6f225f1b3ecbffc&=&format=webp" alt="Kebun Kelapa" class="w-full h-full object-cover opacity-20 transform scale-105 transition-transform duration-1000 ease-out" id="hero-bg-img">
+            <div class="absolute inset-0 bg-gradient-to-r from-forest via-forest/90 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
+                <!-- Left Column: Typography & CTAs -->
+                <div class="lg:col-span-7 text-cream reveal-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-heading font-bold leading-tight mb-6 text-white drop-shadow-md">
+                        Keharmonisan Rasa Manis Alami &amp; Sehat bersama CoSweet
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-cream/90 mb-8 max-w-xl leading-relaxed font-normal">
+                        Mempromosikan gula kelapa alami kualitas terbaik yang diproduksi secara higienis dari nira kelapa pilihan Karanglewas, Banyumas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#products" class="bg-caramel hover:bg-caramelDark text-white px-8 py-3.5 rounded-full font-semibold transition text-center shadow-lg shadow-caramel/30 text-base sm:text-lg hover:scale-105 duration-200">
+                            Lihat Produk
+                        </a>
+                        <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20dengan%20produk%20gula%20kelapa%20alami..." target="_blank" class="bg-transparent hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-semibold transition text-center border-2 border-white/30 backdrop-blur-sm text-base sm:text-lg hover:scale-105 duration-200 flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i> Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Product Showcase Stage (Balanced & Centered) -->
+                <div class="lg:col-span-5 relative w-full max-w-[480px] lg:max-w-none mx-auto flex items-center justify-center reveal-right mt-6 lg:mt-0" id="hero-image-container">
+                    <div class="relative w-full max-w-[440px] xl:max-w-[480px] flex items-center justify-center animate-subtle-float">
+                        <!-- Ambient Warm Glow behind products -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-caramel/25 via-sage/20 to-transparent rounded-full filter blur-3xl pointer-events-none -z-10 scale-95"></div>
+
+                        <!-- Main Pouch Package (Centered Hero Product) -->
+                        <div class="relative z-10 w-full transition-transform duration-500 hover:scale-[1.02]">
+                            <img src="https://media.discordapp.net/attachments/1057549617060925467/1554709829233152051/Desain_tanpa_judul_25.png?ex=6abddfdc&is=6abc8e5c&hm=33bef6c7731c8248f29ddf71d420f196f0fc957c454b5479f42a722ad17b3f46&=&format=webp&quality=lossless&width=512&height=512" alt="CoSweet Coconut Sugar Pouch" class="w-full h-auto object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)]">
+                        </div>
+
+                        <!-- Front Glass Jars (Natural Overlap at Bottom Left) -->
+                        <div class="absolute -bottom-4 -left-4 sm:-left-6 w-[56%] z-20 transition-transform duration-500 hover:scale-105">
+                            <img src="https://media.discordapp.net/attachments/1057549617060925467/1554710194368544879/Desain_tanpa_judul_26.png?ex=6abde033&is=6abc8eb3&hm=4bf51803c1f7a412dd84b48794ce27c5d463e7f8271a3b1241be799084395996&=&format=webp&quality=lossless&width=1024&height=1024" alt="CoSweet Gula Semut Jar" class="w-full h-auto object-contain filter drop-shadow-[0_25px_30px_rgba(0,0,0,0.45)]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-cream relative">
+        <!-- Decorative Pattern (Foto 1: Mangkuk & Butiran Gula Kelapa) -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden bg-coconut-pattern z-0" aria-hidden="true"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal-on-scroll">
+                <h2 class="text-forest font-heading font-bold text-3xl md:text-4xl mb-4">Tentang CoSweet</h2>
+                <div class="w-20 h-1.5 rounded-full bg-caramel mx-auto mb-6"></div>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Didirikan pada tahun 2015 oleh Elly Anggraeni di Karanglewas, Banyumas, CoSweet lahir dari komitmen untuk menghadirkan pemanis alami yang sehat dan berkualitas tinggi, sekaligus memberdayakan komunitas penderes lokal.
+                </p>
+            </div>
+
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition duration-300 text-center group reveal-on-scroll tilt-card" style="transition-delay: 100ms;">
+                    <div class="w-20 h-20 mx-auto bg-sage/10 rounded-full flex items-center justify-center text-forest text-3xl mb-6 group-hover:bg-forest group-hover:text-cream transition duration-300 group-hover:scale-110">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest mb-3">100% Alami</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Low Glycemic Index (GI), lebih sehat dan aman untuk menjaga stabilitas gula darah Anda.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition duration-300 text-center group reveal-on-scroll tilt-card" style="transition-delay: 200ms;">
+                    <div class="w-20 h-20 mx-auto bg-sage/10 rounded-full flex items-center justify-center text-forest text-3xl mb-6 group-hover:bg-forest group-hover:text-cream transition duration-300 group-hover:scale-110">
+                        <i class="fa-solid fa-pump-soap"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest mb-3">Higienis</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Diproduksi secara higienis sejak 2015 dengan standar kebersihan tinggi di setiap tahapan.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition duration-300 text-center group reveal-on-scroll tilt-card" style="transition-delay: 300ms;">
+                    <div class="w-20 h-20 mx-auto bg-sage/10 rounded-full flex items-center justify-center text-forest text-3xl mb-6 group-hover:bg-forest group-hover:text-cream transition duration-300 group-hover:scale-110">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest mb-3">Sertifikasi</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Memenuhi standar kualitas produk alami yang diakui untuk keamanan dan mutu produk.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition duration-300 text-center group reveal-on-scroll tilt-card" style="transition-delay: 400ms;">
+                    <div class="w-20 h-20 mx-auto bg-sage/10 rounded-full flex items-center justify-center text-forest text-3xl mb-6 group-hover:bg-forest group-hover:text-cream transition duration-300 group-hover:scale-110">
+                        <i class="fa-solid fa-people-carry-box"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest mb-3">Pemberdayaan</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Berkomitmen memberdayakan dan meningkatkan kesejahteraan petani & penderes lokal Banjarnegara.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Profile Section -->
+    <section id="video-profile" class="py-20 md:py-28 bg-forest text-cream relative overflow-hidden">
+        <!-- Subtle ambient radial lighting -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(138,154,91,0.15),transparent_60%)] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Header Section (Minimalist & Refined) -->
+            <div class="text-center max-w-2xl mx-auto mb-10 md:mb-12 reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.45em] font-medium text-caramel block mb-3">
+                    Video Profil
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-medium text-white tracking-tight">
+                    Mengenal Lebih Dekat CoSweet
+                </h2>
+                <p class="text-cream/75 text-sm sm:text-base font-light leading-relaxed mt-4">
+                    Kisah dedikasi bersama para penderes lokal Banjarnegara dalam mengolah nira murni kelapa menjadi gula alami berkualitas ekspor.
+                </p>
+            </div>
+
+            <!-- Cinema Frame (Pure 16:9, Solitary & Floating) -->
+            <div class="reveal-on-scroll">
+                <div class="relative w-full aspect-video rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 bg-black">
+                    <iframe 
+                        class="w-full h-full border-0"
+                        src="https://www.youtube.com/embed/E_gnwnh629U?rel=0&amp;modestbranding=1" 
+                        title="Video Profil UMKM CoSweet Gula Kristal Banyumas" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal-on-scroll">
+                <div class="max-w-2xl">
+                    <h2 class="text-forest font-heading font-bold text-3xl md:text-4xl mb-4">Katalog Produk</h2>
+                    <div class="w-20 h-1.5 rounded-full bg-caramel mb-6"></div>
+                    <p class="text-gray-600 text-lg">Pilihan gula kelapa alami terbaik kami untuk kebutuhan dapur rumahan hingga industri makanan & minuman.</p>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+                <!-- Product 1 -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col group reveal-on-scroll tilt-card" style="transition-delay: 100ms;">
+                    <div class="relative h-72 overflow-hidden bg-white flex items-center justify-center">
+                        <img src="https://media.discordapp.net/attachments/1057549617060925467/1554708943966703647/2.png?ex=6abddf09&is=6abc8d89&hm=8a74d5f5f1ae0e24c7c5f57291c379ea58b93ad243067f1aff93cd54e9e82da5&=&format=webp&quality=lossless&width=1024&height=1024" alt="Gula Kelapa Kristal / Semut" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                            <i class="fa-solid fa-fire mr-1"></i> Best Seller
+                        </div>
+                        <div class="absolute top-4 left-4 bg-forest text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                            <i class="fa-solid fa-check-circle"></i> 100% Alami
+                        </div>
+                    </div>
+                    <div class="p-6 xl:p-8 flex-1 flex flex-col">
+                        <h3 class="font-bold text-xl xl:text-2xl text-forest mb-2">Cosweet Coconut Sugar Powder</h3>
+                        <p class="text-sage text-xs sm:text-sm font-semibold mb-3 bg-sage/10 inline-block px-3 py-1 rounded-md w-fit">Varian: 250g | 500g | 1kg</p>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-6 flex-1 leading-relaxed">Gula kelapa alami bentuk kristal halus, mudah larut, dan cocok sebagai pengganti gula pasir untuk minuman, baking, maupun masakan.</p>
+                        <div class="flex items-end justify-between mb-6 border-t border-gray-200 pt-4 mt-auto">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Mulai dari</p>
+                                <p class="text-2xl xl:text-3xl font-bold text-caramelDark">Rp 25.000</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-2">
+                            <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20untuk%20memesan%20Cosweet%20Coconut%20Sugar%20Powder..." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-xl text-center font-bold transition flex justify-center items-center gap-2.5 shadow-md shadow-[#25D366]/25 hover:-translate-y-0.5 text-sm sm:text-base">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col group reveal-on-scroll tilt-card" style="transition-delay: 200ms;">
+                    <div class="relative h-72 overflow-hidden bg-white flex items-center justify-center">
+                        <img src="https://media.discordapp.net/attachments/1057549617060925467/1554710194368544879/Desain_tanpa_judul_26.png?backend=b2&ex=6abe88f3&is=6abd3773&hm=3179cfe9b9040677b7c80e22769f28baf823a1c11141a8fa19338456c40bfb96&=&format=webp&quality=lossless&width=1024&height=1024" alt="Cosweet Coconut Sugar Cube" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                            <i class="fa-solid fa-fire mr-1"></i> Best Seller
+                        </div>
+                        <div class="absolute top-4 left-4 bg-forest text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                            <i class="fa-solid fa-check-circle"></i> 100% Alami
+                        </div>
+                    </div>
+                    <div class="p-6 xl:p-8 flex-1 flex flex-col">
+                        <h3 class="font-bold text-xl xl:text-2xl text-forest mb-2">Cosweet Coconut Sugar Cube</h3>
+                        <p class="text-sage text-xs sm:text-sm font-semibold mb-3 bg-sage/10 inline-block px-3 py-1 rounded-md w-fit">Varian: 500g | 1kg (Batok / Koin)</p>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-6 flex-1 leading-relaxed">Gula merah kelapa cetak tradisional dengan cita rasa karamel otentik. Sangat cocok untuk masakan Nusantara, bumbu rujak, dan jajanan pasar.</p>
+                        <div class="flex items-end justify-between mb-6 border-t border-gray-200 pt-4 mt-auto">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Mulai dari</p>
+                                <p class="text-2xl xl:text-3xl font-bold text-caramelDark">Rp 20.000</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-2">
+                            <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20untuk%20memesan%20Cosweet%20Coconut%20Sugar%20Cube..." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-xl text-center font-bold transition flex justify-center items-center gap-2.5 shadow-md shadow-[#25D366]/25 hover:-translate-y-0.5 text-sm sm:text-base">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col group reveal-on-scroll tilt-card" style="transition-delay: 300ms;">
+                    <div class="relative h-72 overflow-hidden bg-white flex items-center justify-center">
+                        <img src="https://media.discordapp.net/attachments/1057549617060925467/1554713462175698974/cHJvZHVjdDpwcm9kdWN0cy9pbWFnZXMvd2hhdHNhcHAtaW1hZ2UtMjAyMi0wNS0yNC1hdC0wLUhuVndHUjctMjAyMjA1MjUuanBlZw.png?backend=b2&ex=6abde33e&is=6abc91be&hm=513ef8019638579e630080d1ad21b09a8d54633c8fb2f856192aa6f6d6e20f99&=&format=webp&quality=lossless&width=768&height=431" alt="Gula Semut Stik" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                            <i class="fa-solid fa-fire mr-1"></i> Praktis
+                        </div>
+                        <div class="absolute top-4 left-4 bg-forest text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                            <i class="fa-solid fa-check-circle"></i> 100% Alami
+                        </div>
+                    </div>
+                    <div class="p-6 xl:p-8 flex-1 flex flex-col">
+                        <h3 class="font-bold text-xl xl:text-2xl text-forest mb-2">Gula Semut Stik Sachet</h3>
+                        <p class="text-sage text-xs sm:text-sm font-semibold mb-3 bg-sage/10 inline-block px-3 py-1 rounded-md w-fit">Varian: Kemasan Sachet / Stick</p>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-6 flex-1 leading-relaxed">Gula kelapa kristal kemasan sachet praktis sekali pakai. Sangat cocok untuk sajian kopi/teh di cafe, hotel, restoran, maupun saat bepergian.</p>
+                        <div class="flex items-end justify-between mb-6 border-t border-gray-200 pt-4 mt-auto">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Mulai dari</p>
+                                <p class="text-2xl xl:text-3xl font-bold text-caramelDark">Rp 700 <span class="text-xs text-gray-500 font-normal">/ pcs</span></p>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-2">
+                            <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20untuk%20memesan%20Gula%20Semut%20Stik%20Sachet..." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-xl text-center font-bold transition flex justify-center items-center gap-2.5 shadow-md shadow-[#25D366]/25 hover:-translate-y-0.5 text-sm sm:text-base">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Cosweet Coconut Syrup Alami -->
+                <div class="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col group reveal-on-scroll tilt-card" style="transition-delay: 400ms;">
+                    <div class="relative h-72 overflow-hidden bg-gradient-to-b from-cream via-white to-cream flex items-center justify-center p-3">
+                        <img src="assets/organic-coconut-syrup.jpg" alt="Cosweet Coconut Syrup Alami" class="w-full h-full object-contain transition duration-700 group-hover:scale-105 filter drop-shadow-md">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="absolute top-4 right-4 bg-caramel text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1">
+                            <i class="fa-solid fa-sparkles text-[10px]"></i> Premium
+                        </div>
+                        <div class="absolute top-4 left-4 bg-forest text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                            <i class="fa-solid fa-check-circle"></i> 100% Alami
+                        </div>
+                    </div>
+                    <div class="p-6 xl:p-8 flex-1 flex flex-col">
+                        <h3 class="font-bold text-xl xl:text-2xl text-forest mb-2">Cosweet Coconut Syrup Alami</h3>
+                        <p class="text-sage text-xs sm:text-sm font-semibold mb-3 bg-sage/10 inline-block px-3 py-1 rounded-md w-fit">Varian: 320g | Botol Kaca Flip-Top</p>
+                        <p class="text-gray-600 text-xs sm:text-sm mb-6 flex-1 leading-relaxed">Pemanis alami (Friendly Sweetener) dari 100% nira kelapa murni alami pilihan. Vegan-friendly, gluten-free, tanpa aditif buatan. Sempurna untuk topping waffle, pancake, &amp; aneka minuman.</p>
+
+                        <div class="flex items-end justify-between mb-6 border-t border-gray-200 pt-4 mt-auto">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Mulai dari</p>
+                                <p class="text-2xl xl:text-3xl font-bold text-caramelDark">Rp 35.000</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-2">
+                            <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20untuk%20memesan%20Cosweet%20Coconut%20Syrup%20Alami%20320g..." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-xl text-center font-bold transition flex justify-center items-center gap-2.5 shadow-md shadow-[#25D366]/25 hover:-translate-y-0.5 text-sm sm:text-base">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gradient-to-b from-white via-cream/40 to-white relative overflow-hidden border-t border-gray-100">
+        <!-- Subtle decorative background blurs -->
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-sage/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -top-20 w-96 h-96 bg-caramel/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal-on-scroll">
+                <h2 class="text-forest font-heading font-bold text-3xl md:text-4xl mb-4">Sertifikasi Resmi Produk</h2>
+                <div class="w-20 h-1.5 rounded-full bg-caramel mx-auto mb-6"></div>
+                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                    Selain sertifikasi organik dari <span class="font-bold text-forest">USDA</span> dan <span class="font-bold text-forest">EU</span>, <span class="font-bold text-forest">CoSweet Gula Kelapa</span> juga telah tersertifikasi <span class="font-semibold text-forest">Fair Trade</span>, <span class="font-semibold text-forest">BIOSUISSE</span>, <span class="font-semibold text-forest">HACCP</span>, <span class="font-semibold text-forest">Halal</span>, dan <span class="font-semibold text-forest">ISO 22000</span>.
+                </p>
+            </div>
+
+            <!-- Certification Logos Grid (7 Logos) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 items-stretch">
+                <!-- 1. USDA Organic -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 50ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/usda-organic.svg" alt="Sertifikat USDA Organic" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">USDA Organic</h3>
+                        <p class="text-xs text-gray-500 font-medium">Standar Organik Amerika Serikat</p>
+                    </div>
+                </div>
+
+                <!-- 2. EU Organic -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 100ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/eu-organic.svg" alt="Sertifikat EU Organic" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">EU Organic</h3>
+                        <p class="text-xs text-gray-500 font-medium">Standar Organik Uni Eropa</p>
+                    </div>
+                </div>
+
+                <!-- 3. Fair Trade -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 150ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/fairtrade.svg" alt="Sertifikat Fair Trade" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">Fair Trade</h3>
+                        <p class="text-xs text-gray-500 font-medium">Kesejahteraan &amp; Keadilan Petani</p>
+                    </div>
+                </div>
+
+                <!-- 4. BIOSUISSE -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/bio-suisse.svg" alt="Sertifikat BIOSUISSE Organic" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">BIOSUISSE</h3>
+                        <p class="text-xs text-gray-500 font-medium">Standar Organik Ketat Swiss</p>
+                    </div>
+                </div>
+
+                <!-- 5. HACCP -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 250ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/haccp.svg" alt="Sertifikat HACCP Food Safety" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">HACCP</h3>
+                        <p class="text-xs text-gray-500 font-medium">Sistem Keamanan Pangan Kritis</p>
+                    </div>
+                </div>
+
+                <!-- 6. Halal Indonesia -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 300ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/halal.svg" alt="Sertifikat Halal Indonesia" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">Halal</h3>
+                        <p class="text-xs text-gray-500 font-medium">BPJPH Kemenag &amp; MUI</p>
+                    </div>
+                </div>
+
+                <!-- 7. ISO 22000 -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5 reveal-on-scroll" style="transition-delay: 350ms;">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-2 mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <img src="assets/certifications/iso-22000.svg" alt="Sertifikat ISO 22000" class="max-w-full max-h-full object-contain filter drop-shadow-sm">
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-heading font-bold text-forest text-base mb-1 group-hover:text-caramel transition">ISO 22000</h3>
+                        <p class="text-xs text-gray-500 font-medium">Manajemen Keamanan Pangan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-forest font-heading font-bold text-3xl md:text-4xl mb-4">Berita & Edukasi</h2>
+                <div class="w-20 h-1.5 rounded-full bg-caramel mx-auto mb-6"></div>
+                <p class="text-gray-600 text-lg">Temukan informasi seputar gaya hidup sehat, resep, dan cerita dari kebun kami.</p>
+            </div>
+
+            <!-- Grid Kartu Berita -->
+            <div id="news-grid" class="grid md:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition duration-300 group flex flex-col cursor-pointer" onclick="openNewsModal('berita-1')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="assets/berita/berita-manfaat-gula-kelapa.jpg" alt="Manfaat Gula Kelapa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-forest font-bold px-3 py-1 rounded-md text-sm shadow-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-heart-pulse text-xs"></i> Kesehatan
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-sage text-sm font-semibold mb-3 flex items-center gap-2">
+                                <i class="fa-regular fa-calendar"></i> 10 Sep 2026
+                            </p>
+                            <h3 class="font-bold text-xl text-forest mb-4 hover:text-caramel transition font-heading leading-snug">
+                                Manfaat Gula Kelapa Alami dibanding Gula Pasir untuk Gaya Hidup Sehat
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
+                                Kenali keunggulan gula kelapa alami dengan indeks glikemik rendah, serat prebiotik inulin, dan kaya mineral esensial untuk menjaga kestabilan energi tubuh.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <button type="button" class="text-forest font-bold hover:text-caramel transition flex items-center gap-2 group-hover:translate-x-2 text-left text-sm">
+                                Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                            <span class="text-xs text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>4 Menit Baca</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition duration-300 group flex flex-col cursor-pointer" onclick="openNewsModal('berita-2')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="assets/berita/berita-resep-kue.jpg" alt="Resep Kue Sehat" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-forest font-bold px-3 py-1 rounded-md text-sm shadow-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-cake-candles text-xs"></i> Resep &amp; Baking
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-sage text-sm font-semibold mb-3 flex items-center gap-2">
+                                <i class="fa-regular fa-calendar"></i> 05 Sep 2026
+                            </p>
+                            <h3 class="font-bold text-xl text-forest mb-4 hover:text-caramel transition font-heading leading-snug">
+                                Tips Praktis Mengganti Pemanis untuk Resep Kue &amp; Pastry Sehat
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
+                                Ingin baking kue yang lebih sehat untuk keluarga? Berikut adalah panduan takaran konversi penggunaan gula kelapa kristal pengganti gula pasir dalam resep Anda.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <button type="button" class="text-forest font-bold hover:text-caramel transition flex items-center gap-2 group-hover:translate-x-2 text-left text-sm">
+                                Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                            <span class="text-xs text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>5 Menit Baca</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition duration-300 group flex flex-col cursor-pointer" onclick="openNewsModal('berita-3')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="assets/berita/berita-penyadapan-nira.jpg" alt="Proses Penyadapan Nira" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-forest font-bold px-3 py-1 rounded-md text-sm shadow-sm flex items-center gap-1.5">
+                            <i class="fa-solid fa-tree text-xs"></i> Cerita Petani
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-sage text-sm font-semibold mb-3 flex items-center gap-2">
+                                <i class="fa-regular fa-calendar"></i> 28 Agu 2026
+                            </p>
+                            <h3 class="font-bold text-xl text-forest mb-4 hover:text-caramel transition font-heading leading-snug">
+                                Proses Penyadapan Nira di Karanglewas: Dedikasi &amp; Tradisi Manis Banyumas
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
+                                Melihat lebih dekat keseharian para penderes nira kelapa di Karanglewas, Banyumas. Dedikasi mereka adalah kunci kualitas premium CoSweet.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <button type="button" class="text-forest font-bold hover:text-caramel transition flex items-center gap-2 group-hover:translate-x-2 text-left text-sm">
+                                Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                            <span class="text-xs text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i>6 Menit Baca</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ARTICLE READING MODAL (DINAMIS 1 MODAL UNTUK SEMUA BERITA) ===== -->
+    <div id="news-modal" class="news-modal fixed inset-0 z-[9999] hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeNewsModal()"></div>
+        <div class="relative bg-white rounded-3xl shadow-2xl w-full max-w-3xl max-h-[92vh] overflow-y-auto z-10">
+            <!-- Header Sticky Bar -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-md px-6 py-4 border-b border-gray-100 flex items-center justify-between z-20 rounded-t-3xl">
+                <div class="flex items-center gap-2 text-xs font-semibold text-sage uppercase tracking-wider">
+                    <span id="news-modal-badge" class="bg-sage/10 text-sage px-3 py-1 rounded-full"><i class="fa-solid fa-tag mr-1"></i> Kesehatan</span>
+                    <span>•</span>
+                    <span id="news-modal-readtime" class="text-gray-500"><i class="fa-regular fa-clock mr-1"></i> 4 Menit Baca</span>
+                </div>
+                <button type="button" onclick="closeNewsModal()" class="w-10 h-10 bg-gray-100 hover:bg-forest hover:text-white rounded-full flex items-center justify-center text-gray-500 transition" aria-label="Tutup">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body Content -->
+            <div class="p-6 sm:p-10">
+                <h1 id="news-modal-title" class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-forest leading-tight mb-4">
+                    Judul Artikel
+                </h1>
+
+                <div class="flex items-center gap-3 text-sm text-gray-500 pb-6 mb-6 border-b border-gray-100">
+                    <div id="news-modal-author-avatar" class="w-10 h-10 rounded-full bg-forest text-cream flex items-center justify-center font-bold font-heading">
+                        CS
+                    </div>
+                    <div>
+                        <p id="news-modal-author-name" class="font-bold text-forest">Tim Edukasi Nutrisi CoSweet</p>
+                        <p id="news-modal-author-desc" class="text-xs text-gray-400">Ditinjau oleh Ahli Pangan • 10 September 2026</p>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                <div class="rounded-2xl overflow-hidden mb-8 shadow-sm">
+                    <img id="news-modal-image" src="" alt="" class="w-full h-72 sm:h-96 object-cover">
+                    <p id="news-modal-caption" class="text-xs text-gray-400 italic px-4 py-2 bg-gray-50 border-b border-gray-100"></p>
+                </div>
+
+                <!-- Article Content Container -->
+                <div id="news-modal-body" class="prose max-w-none text-gray-700 leading-relaxed text-base sm:text-lg">
+                    <!-- Konten artikel di-render secara dinamis di sini -->
+                </div>
+
+                <!-- Share Section -->
+                <div class="border-t border-gray-100 pt-6 mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <span class="text-sm font-bold text-forest">Bagikan Edukasi Ini:</span>
+                    <div class="flex gap-2">
+                        <a id="news-modal-share-wa" href="#" target="_blank" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center transition" title="Kirim ke WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a id="news-modal-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://cosweet.id" target="_blank" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition" title="Bagikan ke Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a id="news-modal-share-x" href="#" target="_blank" class="w-10 h-10 rounded-full bg-sky-500 hover:bg-sky-600 text-white flex items-center justify-center transition" title="Bagikan ke X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <button type="button" onclick="copyArticleLink(this)" class="px-4 h-10 rounded-full bg-gray-100 hover:bg-forest hover:text-white text-gray-700 text-xs font-semibold flex items-center gap-1.5 transition">
+                            <i class="fa-solid fa-link"></i> <span>Salin Link</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Other Articles Navigation -->
+                <div class="border-t border-gray-100 pt-8 mt-8">
+                    <h3 class="font-heading font-bold text-forest text-lg mb-4">Artikel Edukasi Lainnya</h3>
+                    <div id="news-modal-related" class="grid sm:grid-cols-2 gap-4">
+                        <!-- Diisi otomatis artikel lainnya -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-forest relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-sage/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-caramel/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+        
+        <div class="absolute inset-0 z-0 opacity-5 mix-blend-overlay">
+            <img src="https://images.unsplash.com/photo-1590004953392-5aba2e72269a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Background" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[2rem] overflow-hidden shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <!-- Contact Info -->
+                    <div class="p-10 lg:p-16 bg-cream">
+                        <h2 class="text-forest font-heading font-bold text-3xl md:text-4xl mb-4">Hubungi Kami</h2>
+                        <div class="w-16 h-1.5 rounded-full bg-caramel mb-8"></div>
+                        <p class="text-gray-600 mb-10 text-lg leading-relaxed">
+                            Tertarik untuk menjadi agen, reseller, atau membutuhkan pasokan grosir untuk industri F&B Anda? Silakan hubungi kami untuk penawaran terbaik.
+                        </p>
+
+                        <div class="space-y-8 mb-12">
+                            <div class="flex items-start gap-5">
+                                <div class="w-14 h-14 bg-white shadow-sm rounded-2xl flex items-center justify-center text-forest flex-shrink-0 border border-gray-100">
+                                    <i class="fa-solid fa-map-location-dot text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-forest mb-1 text-lg">Alamat Produksi</h4>
+                                    <p class="text-gray-600 text-base leading-relaxed">
+                                        Karanglewas, Kabupaten Banyumas,<br>Jawa Tengah, Indonesia
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5">
+                                <div class="w-14 h-14 bg-white shadow-sm rounded-2xl flex items-center justify-center text-forest flex-shrink-0 border border-gray-100">
+                                    <i class="fa-solid fa-envelope text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-forest mb-1 text-lg">Email</h4>
+                                    <p class="text-gray-600 text-base">hello@cosweet.id</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-5">
+                                <div class="w-14 h-14 bg-white shadow-sm rounded-2xl flex items-center justify-center text-forest flex-shrink-0 border border-gray-100">
+                                    <i class="fa-solid fa-clock text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-forest mb-1 text-lg">Jam Operasional</h4>
+                                    <p class="text-gray-600 text-base">Senin - Sabtu: 08.00 - 16.00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20dengan%20produk%20gula%20kelapa%20alami..." target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-green-500/30 w-full sm:w-auto justify-center hover:-translate-y-1">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Hubungi via WhatsApp
+                        </a>
+                    </div>
+                    
+                    <!-- Map -->
+                    <div class="h-96 lg:h-auto w-full relative min-h-[400px]">
+                        <!-- Google Maps Embed for Karanglewas, Banyumas -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126588.66723223126!2d109.11181822295627!3d-7.399587635678175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655ea31201fa8b%3A0xb35a3ccfb3b0bc84!2sKaranglewas%2C%20Banyumas%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1698246830761!5m2!1sen!2sid" width="100%" height="100%" style="border:0; filter: contrast(1.1) saturate(1.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="absolute inset-0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#162710] text-gray-400 py-16 border-t border-forest/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="lg:col-span-1">
+                    <a href="#" class="inline-block mb-8">
+                        <img src="logo.png" alt="CoSweet Logo" class="w-48 md:w-64 h-auto bg-white rounded-3xl shadow-lg p-3">
+                    </a>
+                    <p class="text-sm leading-relaxed mb-8">Pemanis alami berkualitas murni dari alam Banyumas, menjaga harmoni rasa dan kesehatan.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/cosweetcosweet/" class="w-10 h-10 rounded-full bg-forest flex items-center justify-center hover:bg-caramel hover:text-white transition text-cream">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-forest flex items-center justify-center hover:bg-caramel hover:text-white transition text-cream">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-forest flex items-center justify-center hover:bg-caramel hover:text-white transition text-cream">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-lg">Menu Navigasi</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#home" class="hover:text-sage transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-sage transition">Tentang Kami</a></li>
+                        <li><a href="#video-profile" class="hover:text-sage transition">Video Profil</a></li>
+                        <li><a href="#products" class="hover:text-sage transition">Produk</a></li>
+                        <li><a href="#news" class="hover:text-sage transition">Berita Edukasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-lg">Layanan</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-sage transition">Pembelian Grosir</a></li>
+                        <li><a href="#" class="hover:text-sage transition">Kemitraan (Reseller)</a></li>
+                        <li><a href="#" class="hover:text-sage transition">Katalog PDF</a></li>
+                        <li><a href="#contact" class="hover:text-sage transition">Hubungi CS</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-heading text-lg">Pemesanan Langsung</h4>
+                    <div class="flex flex-col gap-3">
+                        <a href="https://wa.me/6281234567890?text=Halo%20CoSweet,%20saya%20tertarik%20dengan%20produk%20gula%20kelapa%20alami..." target="_blank" class="inline-flex items-center gap-3 bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40 text-white px-5 py-3 rounded-xl font-bold transition">
+                            <i class="fa-brands fa-whatsapp text-[#25D366] text-2xl"></i> WhatsApp Official
+                        </a>
+                        <a href="#contact" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-xl font-bold transition">
+                            <i class="fa-solid fa-envelope text-caramel text-xl"></i> Hubungi / Kirim Pesan
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-forest pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2015-2026 CoSweet. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Interactive JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top" type="button" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-forest text-cream shadow-2xl flex items-center justify-center opacity-0 pointer-events-none translate-y-4 hover:bg-caramel transition-all duration-300 hover:scale-110 focus:outline-none border-2 border-forest/20" aria-label="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up text-lg"></i>
+    </button>
+</body>
+</html>

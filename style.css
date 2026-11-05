@@ -1,0 +1,213 @@
+/* ========================================================
+   CoSweet - Organic Coconut Sugar
+   Custom Animation & Interactive Styles
+   ======================================================== */
+
+/* Scroll-triggered reveal animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-45px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(45px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal-zoom.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 3D Card Hover Perspective */
+.tilt-card {
+    transition: transform 0.25s ease-out, box-shadow 0.3s ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* ========================================================
+   SINGLE UNIFIED HEADER SYSTEM
+   Visibilitas sempurna di latar belakang hijau tua & putih
+   ======================================================== */
+
+/* Unified Glassmorphism Header Bar */
+#navbar {
+    background: rgba(253, 251, 247, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+#navbar.scrolled {
+    background: rgba(253, 251, 247, 0.98);
+    box-shadow: 0 8px 30px -4px rgba(45, 74, 34, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(138, 154, 91, 0.25);
+}
+
+/* Logo CoSweet: Hijau tua khas dengan halo putih pudar tipis & drop shadow */
+.navbar-logo-wrap {
+    filter: 
+        drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.95))
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.8))
+        drop-shadow(0 2px 4px rgba(45, 74, 34, 0.15));
+    transition: transform 0.25s ease, filter 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar-logo-wrap:hover {
+    transform: scale(1.02);
+    filter: 
+        drop-shadow(0 0 2px rgba(255, 255, 255, 1))
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.9))
+        drop-shadow(0 3px 6px rgba(45, 74, 34, 0.2));
+}
+
+/* Menu Nav Links: Home, About Us, Products, Our News, Contact */
+.nav-link {
+    color: #2d4a22; /* Hijau tua khas CoSweet */
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.015em;
+    position: relative;
+    /* Efek ganda: halo putih pudar tipis + bayangan jatuh halus */
+    text-shadow: 
+        0 0 1.5px rgba(255, 255, 255, 0.95),
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 1px 2px rgba(0, 0, 0, 0.14);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+    color: #c68e17 !important; /* Caramel */
+    text-shadow: 
+        0 0 2px rgba(255, 255, 255, 1),
+        0 0 8px rgba(255, 255, 255, 0.95),
+        0 0 12px rgba(198, 142, 23, 0.4),
+        0 1px 3px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Active Nav Indicator (Scrollspy) */
+.nav-link.active-nav {
+    color: #c68e17 !important;
+    font-weight: 700;
+    text-shadow: 
+        0 0 2px rgba(255, 255, 255, 1),
+        0 0 8px rgba(255, 255, 255, 0.95),
+        0 0 10px rgba(198, 142, 23, 0.45);
+}
+
+.nav-link.active-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #8a9a5b, #c68e17);
+    border-radius: 9999px;
+    box-shadow: 0 0 6px rgba(198, 142, 23, 0.5);
+    animation: expandWidth 0.3s ease-out forwards;
+}
+
+/* Tombol WhatsApp Header Hijau Segar dengan teks putih tajam & kontras tinggi */
+.btn-wa-header {
+    background-color: #25D366;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 14px -1px rgba(37, 211, 102, 0.45), 0 2px 4px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.75);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-wa-header:hover {
+    background-color: #20ba59;
+    box-shadow: 0 6px 20px 0 rgba(37, 211, 102, 0.6), 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1.5px) scale(1.04);
+    border-color: #ffffff;
+}
+
+@keyframes expandWidth {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Top Reading / Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8a9a5b, #c68e17, #e09f19);
+    z-index: 99999;
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
+/* Subtle Floating Animation */
+@keyframes subtleFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-8px) rotate(0.8deg); 
+    }
+}
+.animate-subtle-float {
+    animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* ========================================================
+   DECORATIVE WATERMARK PATTERN (FOTO 1: MANGKUK GULA KELAPA)
+   Menggantikan motif bulat sebelumnya dengan foto gula kelapa
+   bernuansa forest green halus sesuai tema CoSweet.
+   ======================================================== */
+.bg-coconut-pattern {
+    background-image: url('assets/pattern-staggered-tile.png');
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    opacity: 0.08;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 640px) {
+    .bg-coconut-pattern {
+        background-size: 140px 140px;
+        opacity: 0.07;
+    }
+}
